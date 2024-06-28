@@ -10,16 +10,16 @@ def pascal_triangle(n):
     return:
         two dimensional list of integers
     """
-    arr = []
+    list = []
     if n <= 0:
-        return arr
-    arr = [[1]]
+        return list
+    list = [[1]]
     for i in range(1, n):
-        subarr = [1]
-        end = len(arr[i - 1])
+        sublist = [1]
+        end = len(list[i - 1])
         for j in range(end - 1):
-            current = arr[i - 1][j] + arr[i - 1][j + 1]
-            subarr.append(current)
-        subarr.append(1)
-        arr.append(subarr)
-    return arr
+            current = list[i - 1][j] + list[i - 1][j + 1]
+            sublist.append(current)
+        sublist.append(1)
+        list.append(sublist)
+    return (list)
