@@ -18,7 +18,7 @@ def pascal_triangle(n):
         subarr = [1]
         end = len(arr[i - 1])
         for j in range(end - 1):
-            current = arr[i - 1][j + 1] + arr[i - 1][j] 
+            current = arr[i - 1][j] + arr[i - 1][j + 1]
             subarr.append(current)
         subarr.append(1)
         arr.append(subarr)
