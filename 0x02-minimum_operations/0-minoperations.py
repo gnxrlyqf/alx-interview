@@ -11,6 +11,5 @@ def minOperations(n):
         while n % divisor == 0:
             operations += divisor
             n /= divisor
-            divisor -= 1
         divisor += 1
     return operations
