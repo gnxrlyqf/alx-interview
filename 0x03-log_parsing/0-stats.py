@@ -15,7 +15,7 @@ def stats(codes, size):
         size: total file size
     """
     print("File size: {}".format(size))
-    for k, v in codes.items():
+    for k, v in sorted(codes.items()):
         if v != 0:
             print("{}: {}".format(k, v))
 
