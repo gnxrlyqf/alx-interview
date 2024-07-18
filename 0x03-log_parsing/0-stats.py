@@ -32,7 +32,7 @@ codes = {"200": 0,
 
 try:
     for line in sys.stdin:
-        parsed = line.split()[::-1] 
+        parsed = line.split()[::-1]
         if len(parsed) > 2:
             count += 1
             if count <= 10:
