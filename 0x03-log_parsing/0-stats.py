@@ -41,8 +41,8 @@ pattern = rf'{ip}\s-\s{datetime}\s{request}\s{code}\s{bytes}'
 
 try:
     for line in sys.stdin:
+        match = re.match(pattern, line)
         if match:
-            match = re.match(pattern, line)
             codes[match.group(5)] += 1
             count += 1
             size += int(match.group(6))
