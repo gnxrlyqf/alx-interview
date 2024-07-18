@@ -3,7 +3,7 @@
 import sys
 
 
-def print_msg(codes, size):
+def stats(codes, size):
     """
     Prints code dictionary after each 10
     Args:
@@ -34,14 +34,14 @@ try:
     for line in sys.stdin:
         parsed = line.split()[::-1] 
         if len(parsed) > 2:
-            counter += 1
-            if counter <= 10:
+            count += 1
+            if count <= 10:
                 size += int(parsed[0])
                 if (parsed[1] in codes.keys()):
                     codes[parsed[1]] += 1
-            if (counter == 10):
-                print_msg(codes, size)
-                counter = 0
-
-finally:
-    print_msg(codes, size)
+            if (count == 10):
+                stats(codes, size)
+                count = 0
+except KeyboardInterrupt:
+    stats(codes, size)
+    raise
