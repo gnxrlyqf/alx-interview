@@ -49,6 +49,18 @@ try:
             stats(codes, size)
             size = 0
             count = 0
+        # parsed = line.split()
+        # parsed = parsed[::-1]
+        # if len(parsed) > 2:
+        #     count += 1
+        #     if count <= 10:
+        #         size += int(parsed[0])  # file size
+        #         code = parsed[1]
+        #         if (code in codes.keys()):
+        #             codes[code] += 1
+        #         if (count == 10):
+        #             stats(codes, size)
+        #             count = 0
 except KeyboardInterrupt:
     stats(codes, size)
     raise
