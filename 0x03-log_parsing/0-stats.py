@@ -5,7 +5,7 @@ import sys
 
 def print_msg(codes, size):
     """
-    Method to print
+    Prints code dictionary after each 10
     Args:
         codes: dictionary of codes
         size: total size of the files
