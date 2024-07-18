@@ -13,6 +13,8 @@ def stats(codes, size):
     Args:
         codes: dictionary of status code count
         size: total file size
+    Returns:
+        Nothing
     """
     print("File size: {}".format(size))
     for k, v in sorted(codes.items()):
