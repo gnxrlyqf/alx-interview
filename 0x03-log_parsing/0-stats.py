@@ -42,14 +42,13 @@ pattern = rf'{ip}\s-\s{datetime}\s{request}\s{code}\s{bytes}'
 try:
     for line in sys.stdin:
         match = re.match(pattern, line)
-        if match:
-            codes[match.group(5)] += 1
-            count += 1
-            size += int(match.group(6))
-            if count == 10:
-                stats(codes, size)
-                size = 0
-                count = 0
+        codes[match.group(5)] += 1
+        count += 1
+        size += int(match.group(6))
+        if count == 10:
+            stats(codes, size)
+            size = 0
+            count = 0
 except KeyboardInterrupt:
     stats(codes, size)
     raise
