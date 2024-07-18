@@ -42,13 +42,15 @@ pattern = rf'{ip}\s-\s{datetime}\s{request}\s{code}\s{bytes}'
 try:
     for line in sys.stdin:
         match = re.match(pattern, line)
-        if match:
-            codes[match.group(5)] += 1
-            count += 1
+        if not match:
+            continue
+        count += 1
+        if count <= 10:
             size += int(match.group(6))
-            if count == 10:
-                stats(codes, size)
-                count = 0
-
+            if match.group(5) in codes:
+                codes[match.group(5)] += 1
+        if count == 10:
+            stats(codes, size)
+            count = 0
 finally:
     stats(codes, size)
