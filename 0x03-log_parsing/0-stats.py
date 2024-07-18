@@ -44,6 +44,6 @@ try:
             if (count == 10):
                 stats(codes, size)
                 count = 0
-except KeyboardInterrupt:
-    stats(codes, size)
-    raise
+
+finally:
+	stats(codes, size)
