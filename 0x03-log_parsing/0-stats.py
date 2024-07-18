@@ -43,12 +43,12 @@ try:
     for line in sys.stdin:
         match = re.match(pattern, line)
         if match:
-            print(line)
             codes[match.group(5)] += 1
             count += 1
             size += int(match.group(6))
             if count == 10:
                 stats(codes, size)
+                size = 0
                 count = 0
 except KeyboardInterrupt:
     stats(codes, size)
