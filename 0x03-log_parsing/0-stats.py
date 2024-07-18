@@ -37,21 +37,19 @@ request = r'"GET \/projects\/260 HTTP\/1\.1"'
 code = r'(\d{3})'
 bytes = r'(\d+)'
 
-pattern = (
-    rf'{ip}\s-\s{datetime}\s'
-    rf'{request}\s{code}\s{bytes}'
-)
+pattern = rf'{ip}\s-\s{datetime}\s{request}\s{code}\s{bytes}'
 
 try:
     for line in stdin:
         match = re.match(pattern, line)
         if match:
+            print(line)
             codes[match.group(5)] += 1
             count += 1
             size += int(match.group(6))
-        if count == 10:
-            stats(codes, size)
-            count = 0
+            if count == 10:
+                stats(codes, size)
+                count = 0
 except KeyboardInterrupt:
     stats(codes, size)
     raise
