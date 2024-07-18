@@ -32,13 +32,13 @@ codes = {"200": 0,
 
 try:
     for line in sys.stdin:
-        parsed = line.split()
+        parsed = line.split()[::-1] 
         if len(parsed) > 2:
             counter += 1
             if counter <= 10:
-                size += int(parsed[-1])
-                if (parsed[-2] in codes.keys()):
-                    codes[parsed[-2]] += 1
+                size += int(parsed[0])
+                if (parsed[1] in codes.keys()):
+                    codes[parsed[1]] += 1
             if (counter == 10):
                 print_msg(codes, size)
                 counter = 0
