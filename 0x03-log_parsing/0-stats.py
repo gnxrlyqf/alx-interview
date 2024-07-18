@@ -3,7 +3,7 @@
     Task 0
 """
 
-from sys import stdin
+import sys
 import re
 
 
@@ -40,7 +40,7 @@ bytes = r'(\d+)'
 pattern = rf'{ip}\s-\s{datetime}\s{request}\s{code}\s{bytes}'
 
 try:
-    for line in stdin:
+    for line in sys.stdin:
         match = re.match(pattern, line)
         if match:
             print(line)
